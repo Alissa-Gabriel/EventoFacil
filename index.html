@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Encontrou uma falha de segurança no EventoFácil? Reporte de forma segura e responsável.">
+  <title>Reportar vulnerabilidade | EventoFácil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="inner">
+      <span class="brand">Evento<span>Fácil</span></span>
+      <nav aria-label="Navegação principal">
+        <a href="#regras">Regras</a>
+        <a class="cta" href="#formulario">Reportar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Reportar vulnerabilidade</h1>
+    <p class="lead">Encontrou uma falha de segurança no EventoFácil? Conte pra gente. Confirmamos o recebimento em até 3 dias úteis e tratamos tudo com sigilo, conforme a LGPD. Se preferir, escreva para <a href="mailto:seguranca@eventofacil.example">seguranca@eventofacil.example</a>.</p>
+
+    <section class="card" id="formulario">
+      <h2>Envie seu relato</h2>
+      <p class="hint required-note">Os campos com <span class="required">*</span> são obrigatórios.</p>
+
+      <form id="vulnerabilityForm" novalidate>
+        <div class="field">
+          <label for="titulo">Título <span class="required">*</span></label>
+          <input id="titulo" name="titulo" type="text" maxlength="120" required placeholder="Ex.: Pedidos de outros clientes visíveis ao alterar o ID na URL">
+        </div>
+
+        <div class="field">
+          <label for="tipo">Tipo de vulnerabilidade <span class="required">*</span></label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Selecione</option>
+            <option>Controle de acesso / IDOR</option>
+            <option>Autenticação ou sessão</option>
+            <option>Injeção (SQL, XSS etc.)</option>
+            <option>Exposição de informações</option>
+            <option>Configuração incorreta de segurança</option>
+            <option>Falha no fluxo de compra ou pagamento</option>
+            <option>Outro / não sei identificar</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="local">Onde está a falha? <span class="required">*</span></label>
+          <input id="local" name="local" type="text" required placeholder="Ex.: app Android, https://eventofacil.example/pedidos">
+        </div>
+
+        <div class="field">
+          <label for="gravidade">Impacto estimado <span class="optional">(opcional)</span></label>
+          <select id="gravidade" name="gravidade">
+            <option value="">Selecione se souber</option>
+            <option>Baixo</option>
+            <option>Médio</option>
+            <option>Alto</option>
+            <option>Crítico</option>
+            <option>Não sei avaliar</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="descricao">Descrição e passos para reproduzir <span class="required">*</span></label>
+          <textarea id="descricao" name="descricao" maxlength="5000" required placeholder="Explique o que encontrou, como reproduzir e o impacto possível. Não inclua senhas, tokens válidos ou dados de terceiros."></textarea>
+          <div class="hint counter" id="descricao-count" aria-live="polite">0 / 5000</div>
+        </div>
+
+        <div class="field">
+          <label for="anexo">Evidências <span class="optional">(opcional)</span></label>
+          <input id="anexo" name="anexo" type="file" accept=".png,.jpg,.jpeg,.pdf,.txt,.mp4,.webm">
+          <div class="hint">PNG, JPG, PDF, TXT, MP4 ou WEBM, até 5 MB. Remova dados pessoais antes de anexar.</div>
+        </div>
+
+        <fieldset>
+          <legend>Contato para retorno</legend>
+          <div class="field">
+            <label for="nome" class="optional">Nome (opcional)</label>
+            <input id="nome" name="nome" type="text" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="email" class="optional">E-mail (opcional)</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com">
+            <div class="hint">Sem e-mail não conseguimos responder, mas você recebe um número de protocolo na tela.</div>
+          </div>
+        </fieldset>
+
+        <label class="check" for="confirmacao">
+          <input id="confirmacao" name="confirmacao" type="checkbox" required>
+          <span>Li as <a href="#regras">regras do programa</a> e confirmo que testei de boa-fé, sem interromper serviços nem acessar dados de terceiros. <span class="required">*</span></span>
+        </label>
+        <label class="check" for="reconhecimento">
+          <input id="reconhecimento" name="reconhecimento" type="checkbox">
+          <span>Aceito ter meu nome citado no Hall da Fama de segurança.</span>
+        </label>
+
+        <button type="submit">Enviar relato</button>
+
+        <div class="notice" id="notice" role="status" tabindex="-1" hidden></div>
+      </form>
+    </section>
+
+    <section class="rules" id="regras">
+      <p class="eyebrow">Antes de testar</p>
+      <h2>Regras do programa</h2>
+      <div class="rule-list">
+        <article class="rule">
+          <span class="tag">Permitido</span>
+          <p>Testes não destrutivos no app, no site e na API, usando contas próprias e dados de teste.</p>
+        </article>
+        <article class="rule">
+          <span class="tag">Proibido</span>
+          <p>Engenharia social, phishing, DoS/DDoS, malware, acesso a dados de terceiros além do mínimo necessário, destruição de dados ou testes em sistemas externos (ex.: gateway de pagamento).</p>
+        </article>
+        <article class="rule">
+          <span class="tag">Prazos</span>
+          <p>Confirmação em até 3 dias úteis, classificação em até 10 dias úteis e correção em até 30 dias (críticas) ou 90 dias (demais). Não tomamos medidas judiciais contra quem seguir estas regras.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 EventoFácil.</footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
