@@ -1,0 +1,9 @@
+# Politica e canais de seguranca da EventoFácil
+
+Contact: mailto:seguranca@eventofacil.example
+Contact: https://alissa-gabriel.github.io/EventoFacil/
+Expires: 2027-10-06T00:00:00-03:00
+Preferred-Languages: pt-BR, en
+Canonical: https://alissa-gabriel.github.io/EventoFacil/.well-known/security.txt
+Policy: https://alissa-gabriel.github.io/EventoFacil/#regras
+Acknowledgments: https://alissa-gabriel.github.io/EventoFacil/#regras
